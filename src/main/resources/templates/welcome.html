@@ -10,7 +10,11 @@
           <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
         </div>
     </div>
-
+    <script th:inline="javascript">
+      alert('[[${welcome}]]');
+    </script>
   </body>
+
+
 
 </html>

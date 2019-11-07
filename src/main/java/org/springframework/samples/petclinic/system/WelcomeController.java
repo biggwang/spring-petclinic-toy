@@ -17,14 +17,27 @@
 package org.springframework.samples.petclinic.system;
 
 
+import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+@Slf4j
 @Controller
 class WelcomeController {
 
+    @Autowired
+    private MessageSource messageSource;
+
+
     @GetMapping("/")
-    public String welcome() {
+    public String welcome(Locale locale) {
+
+        log.info(messageSource.getMessage("welcome", new String[]{"dd"}, locale));
+
         return "welcome";
     }
 }
