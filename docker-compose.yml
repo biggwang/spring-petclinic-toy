@@ -1,9 +1,19 @@
-mysql:
-  image: mysql:5.7
-  ports:
-    - "3306:3306"
-  environment:
-    - MYSQL_ROOT_PASSWORD=petclinic
-    - MYSQL_DATABASE=petclinic
-  volumes:
-    - "./conf.d:/etc/mysql/conf.d:ro"
+version: "3"
+services:
+  pet_database:
+    # 컨테이너 이름을 주고 싶다면 작성한다
+    # container_name: test_database
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: petclinic
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - 3306:3306
+
+  service:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - pet_database
