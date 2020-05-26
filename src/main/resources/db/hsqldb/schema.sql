@@ -1,17 +1,11 @@
-DROP TABLE vet_specialties IF EXISTS;
 DROP TABLE vets IF EXISTS;
-DROP TABLE specialties IF EXISTS;
-DROP TABLE visits IF EXISTS;
-DROP TABLE pets IF EXISTS;
-DROP TABLE types IF EXISTS;
-DROP TABLE owners IF EXISTS;
-
 
 CREATE TABLE vets (
   id         INTEGER IDENTITY PRIMARY KEY,
   first_name VARCHAR(30),
   last_name  VARCHAR(30)
 );
+/*
 CREATE INDEX vets_last_name ON vets (last_name);
 
 CREATE TABLE specialties (
@@ -62,3 +56,4 @@ CREATE TABLE visits (
 );
 ALTER TABLE visits ADD CONSTRAINT fk_visits_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
 CREATE INDEX visits_pet_id ON visits (pet_id);
+*/
