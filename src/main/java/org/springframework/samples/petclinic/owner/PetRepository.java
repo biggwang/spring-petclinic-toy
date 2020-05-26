@@ -55,7 +55,5 @@ public interface PetRepository extends Repository<Pet, Integer> {
      */
     void save(Pet pet);
 
-    @Transactional(readOnly = true)
-    String findPetNames();
 }
 

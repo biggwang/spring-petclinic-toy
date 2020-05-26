@@ -15,7 +15,6 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -38,17 +37,14 @@ class PetController {
     private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
     private final PetRepository pets;
     private final OwnerRepository owners;
-    private final PetService petService;
 
-    public PetController(PetRepository pets, OwnerRepository owners, PetService petService) {
+    public PetController(PetRepository pets, OwnerRepository owners) {
         this.pets = pets;
         this.owners = owners;
-        this.petService = petService;
     }
 
     @ModelAttribute("types")
     public Collection<PetType> populatePetTypes() {
-        List list = this.pets.findPetTypes();
         return this.pets.findPetTypes();
     }
 
@@ -72,7 +68,6 @@ class PetController {
         Pet pet = new Pet();
         owner.addPet(pet);
         model.put("pet", pet);
-        List<PetType> list = this.pets.findPetTypes();
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -86,7 +81,7 @@ class PetController {
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-
+            this.pets.save(pet);
             return "redirect:/owners/{ownerId}";
         }
     }
