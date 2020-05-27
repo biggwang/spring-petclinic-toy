@@ -3,88 +3,63 @@
       th:replace="~{fragments/layout :: layout (~{::body},'error')}">
 
 <body>
-<div id="root">
-    <p>{{ textMessage }}</p>
-    <input type="button" v-bind:value="btnMessage">
-
-    <p>{{ count }}번 클릭했습니다.</p>
-    <button v-on:click="increment">카운트 하기</button>
-</div>
-
 <div id="app">
-    <el-button @click="visible = true">Button</el-button>
-    <el-dialog :visible.sync="visible" title="Hello world">
-        <p>Try Element</p>
-    </el-dialog>
+    <v-container>
+        <v-row>
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="회원번호"
+                ></v-text-field>
+            </v-col>
 
-    <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="memberUid" label="회원번호" width="180"></el-table-column>
-        <el-table-column prop="name" label="이름" width="180"></el-table-column>
-        <el-table-column prop="phone" label="휴대폰"></el-table-column>
-    </el-table>
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="회원아이디"
+                        placeholder="Placeholder"
+                ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="이름"
+                        placeholder="Placeholder"
+                ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="닉네임"
+                        placeholder="Placeholder"
+                ></v-text-field>
+            </v-col>
+
+        </v-row>
+        <v-row>
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="전화번호"
+                        placeholder="Placeholder"
+                ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" sm="6" md="3">
+                <v-text-field
+                        label="이메일"
+                        placeholder="Placeholder"
+                ></v-text-field>
+            </v-col>
+
+        </v-row>
+    </v-container>
 </div>
 
-<div id="componentDiv">
-    <my-component></my-component>
-</div>
 
 <script>
-    new Vue({
-        el: '#root',
-        data: {
-            textMessage: 'Hello Vue.js!',
-            btnMessage: '와 여기는 버튼 메시지야',
-            count: 0
-        },
-        methods: {
-            increment: function () {
-                this.count += 1
-            }
-        }
-    })
 
-    new Vue({
-        el: '#app',
-        data: {
-            visible: false,
-            tableData: [{
-                memberUid: '1',
-                name: '루피',
-                phone: '010-1111-2222'
-            }, {
-                memberUid: '2',
-                name: '조로',
-                phone: '010-1111-2222'
-            }, {
-                memberUid: '3',
-                name: '나미',
-                phone: '010-1111-2222'
-            }, {
-                memberUid: '4',
-                name: '초파',
-                phone: '010-1111-2222'
-            }]
-        }
-    })
-
-    Vue.component('my-component', {
-        template: '<p>{{ message }}</p>',
-        // 컴포넌트 만들때 data 속성은 반드시 메소드 리턴,
-        // 여러개 컴포넌트 인스턴스들이 같은 객체 참조해서 상태 공유 되는것을 회피하기 위함
-        // 그리고 루트 요소는 하나여야 함
-        data: function () {
-            return {
-                message: 'Hello Vue.js'
-            }
-        },
-        methods: {
-
-        }
-    })
-
-    new Vue({
-        el: '#componentDiv'
-    })
+new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+})
 
 
 </script>
