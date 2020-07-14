@@ -45,7 +45,7 @@ class OwnerControllerTest extends Specification {
     }
 
     @Unroll
-    def "주인 찾기 페이지 호출 테스트를 한다." () {
+    def "주인 찾기 페이지 호출 테스트를 한다" () {
 
         expect:
         MockHttpServletRequestBuilder requestBuilder = request(HttpMethod.GET, '/owners/find')
