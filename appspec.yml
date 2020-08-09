@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source:  /
+  - source: /
     destination: /home/ec2-user/app/
 
 permissions:
@@ -11,19 +11,7 @@ permissions:
     group: ec2-user
 
 hooks:
-  BeforeInstall:
-    - location: script/codedeploy/before_install.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: script/codedeploy/after_install.sh
-      timeout: 300
-      runas: root
   ApplicationStart:
     - location: script/codedeploy/application_start.sh
-      timeout: 120
-      runas: root
-  ApplicationStop:
-    - location: script/codedeploy/application_stop.sh
-      timeout: 120
-      runas: root
+      timeout: 60
+      runas: ec2-user
