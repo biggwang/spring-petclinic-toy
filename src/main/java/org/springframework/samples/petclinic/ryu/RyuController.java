@@ -21,7 +21,7 @@ public class RyuController {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
-        ryuService.displayText("1 번째 실행입니다....");
+        ryuService.displayText("1 번째 실행입니다.");
         ryuService.displayTextOnAsync("2 번째 실행입니다.");
         ryuService.displayText("3번째 실행입니다.");
 
