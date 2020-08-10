@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 SERVICE_NAME=spring-petclnic
 SERVER_PORT=8080
 
