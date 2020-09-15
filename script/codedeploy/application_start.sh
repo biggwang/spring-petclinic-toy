@@ -5,7 +5,7 @@ SERVER_PORT=8080
 sudo systemctl daemon-reload
 service ${SERVICE_NAME} restart
 
-sleep 5 # for waitting stop daemon first1
+sleep 5 # for waitting stop daemon first2
 
 CONTINUE=1
 
