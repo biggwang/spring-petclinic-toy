@@ -12,6 +12,6 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: /home/ec2-user/build/script/codedeploy
+    - location: /script/codedeploy/application_start.sh
       timeout: 60
       runas: root
