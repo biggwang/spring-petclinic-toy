@@ -1,21 +1,18 @@
 #!/bin/bash
-SERVICE_NAME=spring-petclnic
+SERVICE_NAME=spring-petclinic-2.1.6.RELEASE.jar
 SERVER_PORT=8080
 
-sudo systemctl daemon-reload
-service ${SERVICE_NAME} restart
+echo "> 현재 실행중인 애플리케이션 pid 확인"
+CURRENT_PID=${pgrep -f spring-petclinic}
 
-sleep 5 # for waitting stop daemon first2
+if [ -z $CURRENT_PID ]
+then
+  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
+else
+  echo "> kill -15 $CURRENT_PID"
+  kill -15 $CURRENT_PID
+  sleep 5
+fi
 
-CONTINUE=1
-
-while [ ${CONTINUE} -eq 1 ]
-do
-    sleep 1
-    PORT_STATUS=`netstat -an | grep LISTEN | grep ":${SERVER_PORT}" | wc -l`
-    if [ ${PORT_STATUS} -eq 1 ]
-    then
-        CONTINUE=0
-    fi
-done
-
+echo "> $APPLICATION_JAR 배포"
+nohup java -jar spring-petclinic-2.1.6.RELEASE.jar
