@@ -28,7 +28,7 @@ public class RyuController {
         stopWatch.stop();
         log.warn("### time: {}", stopWatch.shortSummary());
 
-        return "";
+        return "gogogo";
     }
 
     @GetMapping("/sync/sample")
