@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/build
+    destination: /home/ec2-user/build/
 
 permissions:
   - object: /
@@ -12,6 +12,6 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: /script/codedeploy/application_start.sh
+    - location: script/codedeploy/application_start.sh
       timeout: 60
       runas: root
