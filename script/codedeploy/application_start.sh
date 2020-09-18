@@ -15,4 +15,4 @@ else
 fi
 
 echo "> $APPLICATION_JAR 배포"
-nohup java -jar /home/ec2-user/build/spring-petclinic-2.1.6.RELEASE.jar
+nohup java -jar /home/ec2-user/build/spring-petclinic-2.1.6.RELEASE.jar 2>&1 &
