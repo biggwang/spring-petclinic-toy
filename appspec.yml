@@ -12,6 +12,6 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: /script/codedeploy/application_start.sh
+    - location: script/codedeploy/application_start.sh
       timeout: 60
       runas: root
