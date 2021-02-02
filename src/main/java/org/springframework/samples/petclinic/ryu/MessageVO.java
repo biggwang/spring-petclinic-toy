@@ -15,4 +15,10 @@ public class MessageVO {
 
     @Builder.Default
     private String id = "";
+
+    @Builder.Default
+    private String text = "";
+
+    @Builder.Default
+    private Long delayTime = 0L;
 }
